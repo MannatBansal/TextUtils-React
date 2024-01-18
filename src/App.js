@@ -27,21 +27,47 @@ const showAlert = (message, type) => {
   }, 1500);
 }
 
-const toggleMode = () =>{
-  if(mode === 'light'){
+const removeBodyClasses=()=>{
+  document.body.classList.remove('bg-light')
+  document.body.classList.remove('bg-dark')
+  document.body.classList.remove('bg-warning')
+  document.body.classList.remove('bg-danger')
+  document.body.classList.remove('bg-success')
+  document.body.classList.remove('bg-primary')
+
+}
+
+const toggleMode = (cls) =>{
+  removeBodyClasses();
+
+  if(cls === 'light'){
+    setMode('white');
+    document.body.style.backgroundColor = 'white';
+    showAlert("Light mode has been enabled.", "success")
+    //to change title on button click
+    //document.title = 'TextUtils-Dark Mode Enabled'
+  }
+  
+  else if(cls === 'dark'){
     setMode('dark');
     document.body.style.backgroundColor = '#042743';
     showAlert("Dark mode has been enabled.", "success")
-
-    //to change title on button click
-    document.title = 'TextUtils-Dark Mode Enabled'
+    //document.title = 'TextUtils-Light Mode Enabled'
   }
-  
   else{
-    setMode('light');
-    document.body.style.backgroundColor = 'white';
-    showAlert("Light mode has been enabled.", "success")
-    document.title = 'TextUtils-Light Mode Enabled'
+    if(cls==='primary'){
+      setMode('#92C5FC')
+    }
+    else if(cls==='danger'){
+      setMode('#FC9592')
+    }
+    else if(cls==='success'){
+      setMode('#92FC97')
+    }
+    else{
+      setMode('#FCFC92')
+    }
+    document.body.classList.add('bg-'+cls)
 
   }
 }
@@ -59,13 +85,12 @@ return (
 
 <Routes>
 {/*exact path will exactly matches the path*/}
-<Route exact path="/about" element={<About/>}/>
+<Route exact path="/about" element={<About mode={mode}/>}/>
   
-  <Route exact path="/" element={<TextForm showAlert ={showAlert} heading="Enter the text to analyze below" mode={mode}/>
+  <Route exact path="/" element={<TextForm showAlert ={showAlert} heading="Try TextUtils - Word Counter, Character Counter, Remove Extra Spaces" mode={mode}/>
 }>
   </Route>
-  </Routes>
-  
+</Routes>
 </div>
 </Router>
 </>
