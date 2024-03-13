@@ -10,23 +10,28 @@ setText(newText)
 props.showAlert("Converted to uppercase.", "success")
 }
 
+    //Function for button when we click convert text to lower string
 const handleLowClick = () => {
     let newText = text.toLowerCase();
     setText(newText)
     props.showAlert("Converted to lowercase.", "success")
 
     }
+
+    //Function to clear the text area
     const handleClear = () => {
         setText('')
         props.showAlert("The text Box is cleared.", "success")
 
         }
 
+    //It will help copy the text in the text area
     const handleCopy = () => {
         navigator.clipboard.writeText(text.value)
         props.showAlert("Copied to clipboard.", "success")
     }
 
+    //Remove all extra spaces
     const handleExtraSpace = () => {
         let newText = text.split(/[ ]+/)
         setText(newText.join(" "))
@@ -45,7 +50,6 @@ return (
 <div className="mb-3">
 <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#283747':props.mode, color: props.mode==='dark'?'white':'black'}} id="myBox" rows="8"></textarea>
 </div>
-{/*handleUpClick is a custom func we made to trigger event*/}
 <button disabled={text.length===0} className="btn btn-primary mx-2 my-2 buton" style={{backgroundColor: props.mode==='dark'?'#283747':props.mode, color: props.mode==='dark'?'white':'black'}} id='bn1' onClick={handleLowClick}>Convert to Lowercase</button>
 <button disabled={text.length===0} className="btn btn-primary mx-2 my-2 buton"  style={{backgroundColor: props.mode==='dark'?'#283747':props.mode, color: props.mode==='dark'?'white':'black'}} id='bn2' onClick={handleUpClick}>Convert to Uppercase</button>
 <button disabled={text.length===0} className="btn btn-primary mx-2 my-2 buton"  style={{backgroundColor: props.mode==='dark'?'#283747':props.mode, color: props.mode==='dark'?'white':'black'}} id='bn3' onClick={handleClear}>Clear Text</button>
