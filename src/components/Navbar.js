@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom'; //used to create links to different rou
 
   return (
     <div>
-      {/*Adding bootstrap navbar code here*/}
-      {/*to give variable value in tag we enclose className in {``} and the variable will be declared as ${} */}
     <nav className= "navbar navbar-expand-lg  navbar-dark" style={{backgroundColor:'#585858 '}}>
   <div className="container-fluid">
     <Link className="navbar-brand" to="/">{props.title}</Link>
@@ -34,18 +32,6 @@ import { Link } from 'react-router-dom'; //used to create links to different rou
         <div className="bg-light rounded mx-2" onClick={()=>{props.toggleMode('light')}} style={{height:'30px', width:'30px', cursor:'pointer', border:'1px solid black'}}></div>
         <div className="bg-dark rounded mx-2" onClick={()=>{props.toggleMode('dark')}} style={{height:'30px', width:'30px', cursor:'pointer', border:'1px solid black'}}></div>
       </div>
-      
-      {/*<form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-primary" type="submit">Search</button>
-  </form>*/}
-{/*we created a toggle switch to change the mode of navbar using condition if mode is light it will set it to dark or otherwise 
-      <div className={`form-check mx-3 form-switch text-${props.mode==='light'?'dark':'light'}`}>
-      {/*when we click on the toggle switch it will trigger the prop toggle mode in which a func is running 
-  <input className="form-check-input " onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-  <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable DarkMode</label>
-
-      </div>*/}
     </div>
   </div>
 </nav>
