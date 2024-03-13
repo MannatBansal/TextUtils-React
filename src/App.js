@@ -44,15 +44,12 @@ const toggleMode = (cls) =>{
     setMode('white');
     document.body.style.backgroundColor = 'white';
     showAlert("Light mode has been enabled.", "success")
-    //to change title on button click
-    //document.title = 'TextUtils-Dark Mode Enabled'
   }
   
   else if(cls === 'dark'){
     setMode('dark');
     document.body.style.backgroundColor = '#042743';
     showAlert("Dark mode has been enabled.", "success")
-    //document.title = 'TextUtils-Light Mode Enabled'
   }
   else{
     if(cls==='primary'){
@@ -75,9 +72,7 @@ const toggleMode = (cls) =>{
 return (
 <>
 <Router>
-{/*Two ways to use component
-<Navbar></Navbar>*/}
-{/*Togle mode is a prop in which we pass value based on a func in which we run a condition and the mode is a prop which will have value as given to state at that time */}
+{/*Toggle mode is a prop in which we pass value based on a func in which we run a condition and the mode is a prop which will have value as given to state at that time */}
 <Navbar title="TextUtils" aboutUs="About" mode={mode} toggleMode={toggleMode}/>
 <Alert alert={alert}/>
 
